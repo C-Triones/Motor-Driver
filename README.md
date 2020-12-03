@@ -1,2 +1,2 @@
-# Motor-Driver
-use of my graduated work
+# Step-Motor
+Use for gurdation

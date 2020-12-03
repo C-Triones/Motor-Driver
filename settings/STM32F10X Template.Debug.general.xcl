@@ -1,0 +1,15 @@
+"D:\Soflware\IAR\arm\bin\armproc.dll" 
+
+"D:\Soflware\IAR\arm\bin\armjlink2.dll" 
+
+"C:\Users\C-Triones\Desktop\Stepper Motor Driver\IAR-STM32F10X Template\Debug\Exe\STM32F10X Template.out" 
+
+--plugin "D:\Soflware\IAR\arm\bin\armbat.dll" 
+
+--device_macro "D:\Soflware\IAR\arm\config\debugger\ST\STM32F1xx_XL.dmac" 
+
+--flash_loader "D:\Soflware\IAR\arm\config\flashloader\ST\FlashSTM32F10xx8.board" 
+
+
+
+
