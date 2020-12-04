@@ -7,6 +7,10 @@
 #include "bsp_spi.h"
 #include "bsp_parameters.h"
 
+
+#define True  1
+#define Flase 0
+
 //IO口操作宏定义
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
@@ -150,7 +154,11 @@ typedef enum
     C_PIC_DcStep            // 负载相关负载控制
 }TMC5160Fun;
 
-
+/*电机运动模式*/
+typedef enum{
+    PosMode =0,
+    VelMode =1
+}MoveMode;
 
 void Init_Tmc_IO_Mode_GPIO(void);
 void Init_Tmc_SPI_Mode_GPIO(void);

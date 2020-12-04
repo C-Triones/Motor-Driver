@@ -18,7 +18,7 @@
         <stlinkResetStrategy>2</stlinkResetStrategy>
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>3143676871</Checksum>
+        <Checksum>140330423</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -52,6 +52,13 @@
         <ITMportsLogFile>0</ITMportsLogFile>
         <ITMlogFile>$PROJ_DIR$\ITM.log</ITMlogFile>
     </SWOTraceHWSettings>
+    <struct_types>
+        <Fmt0>TmcDataStruct_t-CHOPCONF	4	0</Fmt0>
+        <Fmt1>TmcDataStruct_t-DcSetp_SW_MODE	4	0</Fmt1>
+    </struct_types>
+    <watch_formats>
+        <Fmt0>{W}1:ReadValue	3	0</Fmt0>
+    </watch_formats>
     <Trace1>
         <Enabled>0</Enabled>
         <ShowSource>1</ShowSource>
@@ -110,14 +117,6 @@
         <ShowTimeSum>1</ShowTimeSum>
         <SumSortOrder>0</SumSortOrder>
     </EventLog>
-    <DisassembleMode>
-        <mode>0</mode>
-    </DisassembleMode>
-    <Breakpoints2>
-        <Bp0>_ 0 "EMUL_DATA" "TMC5160_Init" 0 0 0 0 4294967295</Bp0>
-        <Bp1>_ 1 "EMUL_CODE" "{$PROJ_DIR$\USER\main.c}.38.9" 0 0 1 "" 0 "" 0</Bp1>
-        <Count>2</Count>
-    </Breakpoints2>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -127,10 +126,6 @@
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
     </TermIOLog>
-    <Aliases>
-        <Count>0</Count>
-        <SuppressDialog>0</SuppressDialog>
-    </Aliases>
     <DriverProfiling>
         <Enabled>0</Enabled>
         <Mode>1</Mode>
@@ -149,4 +144,17 @@
         <Probe0>I0</Probe0>
         <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
     </PowerProbe>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints2>
+        <Bp0>_ 0 "EMUL_DATA" "TMC5160_Init" 0 0 0 0 4294967295</Bp0>
+        <Bp1>_ 1 "EMUL_DATA" "TMC_Config" 0 0 0 0 4294967295</Bp1>
+        <Bp2>_ 1 "EMUL_DATA" "TMC_Config" 0 0 0 0 4294967295</Bp2>
+        <Count>3</Count>
+    </Breakpoints2>
+    <Aliases>
+        <Count>0</Count>
+        <SuppressDialog>0</SuppressDialog>
+    </Aliases>
 </settings>

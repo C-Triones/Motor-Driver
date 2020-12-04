@@ -152,28 +152,27 @@ void FullSetMotorSpeed(u8 Index, u8 Num){// 智能模式速度设置
 */
 //TMC5130/TMC5160   SPI 通信接口    
 void TMC_SPI_Init(void){
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.CHOPCONF,0x044D0153);//CHOPCONF: TOFF=3, HSTRT=4, HEND=1, TBL=2, CHM=0 (spreadcycle) 16 vhighfs&vhighchm (0x6c bit18:19 ) 设置成 1
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.CHOPCONF,TmcDataStruct.CHOPCONF);//0x044D0153 CHOPCONF: TOFF=3, HSTRT=4, HEND=1, TBL=2, CHM=0 (spreadcycle) 16 vhighfs&vhighchm (0x6c bit18:19 ) 设置成 1
     //SYNCPWM synchronization clock 0100  TBLblank time select 36 clk    
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.IHOLD_IRUN,0x00070703);//70A03 PAGE33:IHOLD_IRUN: IHOLD=10, IRUN=22(31 max.current), IHOLDDELAY=6 
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.TPOWERDOWN,0x00000008);//PAGE33:TPOWERDOWN=10:电机静止到电流减小之间的延时
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.GCONF,     0x00000004);//PAGE27:EN_PWM_MODE=1，使能
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.TPWMTHRS,  0x000001F4);//PAGE33:TPWM_THRS=500,对应切换速度35000=ca.30RPM
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.PWMCONF,   0x000401C8);//PAGE43:PWMCONF	   
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.XACTUAL,   0x00000000);// writing value 0xFFCC12F0 = 0 = 0.0 to address 14 = 0x21(XACTUAL)
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.VSTART,             8);//VSTAT = 8   /*VSTAT<VSTOP*/
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.A1,              1000);//A1=1000第一阶段加速度
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.V1,             50000);//V1=50000加速度阀值速度V  
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.AMAX,            1000);//AMAX=5000大于V1的加速度   
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.VMAX,          100000);//VMAX=100000  120000就会丢步
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.VSTOP,             10);//VSTOP=10停止速度，接近于0
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.DMAX,             700);//DMAX=700大于V1的减速度 
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.D1,              1400);//D1=1400小于V1的减速度 		
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.TZEROWAIT, 0x00000000);// VSTAT->VSTOP的时间 =0
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.XTARGET,   0x00000000);//XTARGET =0；  
-    TMC5160_SPIWriteInt(TmcRegistersStrcut.RAMPMODE,  0x00000000);//RAMPMODE=0位置模式，使用所有A、V、D参数
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.IHOLD_IRUN,TmcDataStruct.IHOLD_IRUN);//70A03 PAGE33:IHOLD_IRUN: IHOLD=10, IRUN=22(31 max.current), IHOLDDELAY=6 
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.TPOWERDOWN,TmcDataStruct.TPOWERDOWN);//PAGE33:TPOWERDOWN=10:电机静止到电流减小之间的延时
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.GCONF,          TmcDataStruct.GCONF);//PAGE27:EN_PWM_MODE=1，使能
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.TPWMTHRS,    TmcDataStruct.TPWMTHRS);//PAGE33:TPWM_THRS=500,对应切换速度35000=ca.30RPM
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.PWMCONF,      TmcDataStruct.PWMCONF);//PAGE43:PWMCONF	   
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.XACTUAL,      TmcDataStruct.XACTUAL);// writing value 0xFFCC12F0 = 0 = 0.0 to address 14 = 0x21(XACTUAL)
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.VSTART,        TmcDataStruct.VSTART);//VSTAT = 8   /*VSTAT<VSTOP*/
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.A1,                TmcDataStruct.A1);//A1=1000第一阶段加速度
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.V1,                TmcDataStruct.V1);//V1=50000加速度阀值速度V  
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.AMAX,            TmcDataStruct.AMAX);//AMAX=5000大于V1的加速度   
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.VMAX,            TmcDataStruct.VMAX);//VMAX=100000  120000就会丢步
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.VSTOP,          TmcDataStruct.VSTOP);//VSTOP=10停止速度，接近于0
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.DMAX,            TmcDataStruct.DMAX);//DMAX=700大于V1的减速度 
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.D1,                TmcDataStruct.D1);//D1=1400小于V1的减速度 		
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.TZEROWAIT,  TmcDataStruct.TZEROWAIT);// VSTAT->VSTOP的时间 =0
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.XTARGET,      TmcDataStruct.XTARGET);//XTARGET =0；  
+    TMC5160_SPIWriteInt(TmcRegistersStrcut.RAMPMODE,    TmcDataStruct.RAMPMODE);//RAMPMODE=0位置模式，使用所有A、V、D参数
     stallDetectionConfig();
 }
-
 static void stallDetectionConfig(void){ 
     TMC5160_SPIWriteInt(TmcRegistersStrcut.VDCMIN,      TmcDataStruct.DcSetp_VDCMIN);//设置VDCMIN达到所需速度的5%-20% 地址0x33
     TMC5160_SPIWriteInt(TmcRegistersStrcut.DCCTRL,      TmcDataStruct.DcSetp_DCCTRL);//设置DC_TIME 地址0x6e bit9:0 DC_TIME=37 DC_SG = 4

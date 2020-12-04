@@ -2420,6 +2420,9 @@
         <group>
             <name>BSP</name>
             <file>
+                <name>$PROJ_DIR$\USER\BSP\bsp_key.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\USER\BSP\bsp_led.c</name>
             </file>
             <file>

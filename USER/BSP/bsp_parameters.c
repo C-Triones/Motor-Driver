@@ -64,4 +64,23 @@ TmcDataStruct.DcSetp_VDCMIN = 5000;
 TmcDataStruct.DcSetp_DCCTRL = 0x00030026;
 TmcDataStruct.DcSetp_TCOOLTHRS = 115;
 TmcDataStruct.DcSetp_SW_MODE =   0x00000400;
+
+TmcDataStruct.CHOPCONF = 0x034D0153; //步进32细分
+TmcDataStruct.IHOLD_IRUN = 0x70808; //运动电流8细分 静止电流8细分 电流延时7细分
+TmcDataStruct.TPOWERDOWN = 0x8;     //电机停止后到电流掉电的延迟8*2^18Tclk
+TmcDataStruct.GCONF = 0x4;
+TmcDataStruct.TPWMTHRS = 0x1F4;
+TmcDataStruct.PWMCONF = 0x401C8;
+TmcDataStruct.XACTUAL = 0;
+TmcDataStruct.VSTART = 8;
+TmcDataStruct.A1 = 1000;
+TmcDataStruct.V1 = 50000;
+TmcDataStruct.AMAX = 1000;
+TmcDataStruct.VMAX = 100000;
+TmcDataStruct.VSTOP = 10;
+TmcDataStruct.DMAX = 700;
+TmcDataStruct.D1 = 1400;
+TmcDataStruct.TZEROWAIT = 0;
+TmcDataStruct.XTARGET = 0;
+TmcDataStruct.RAMPMODE =0;
 }

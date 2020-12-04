@@ -9,6 +9,25 @@ typedef struct{
  u32 DcSetp_TCOOLTHRS;
  u16 DcSetp_SW_MODE;
  u16 DcSetp_RAMP_STAT;
+
+ u32 CHOPCONF;
+ u32 IHOLD_IRUN;
+ u32 TPOWERDOWN;
+ u32 GCONF;
+ u32 TPWMTHRS;
+ u32 PWMCONF;
+ u32 XACTUAL;
+ u8  VSTART;
+ u16 A1;
+ u32 V1;
+ u32 AMAX;
+ u32 VMAX;
+ u32 VSTOP;
+ u32 DMAX;
+ u32 D1;
+ u8 TZEROWAIT;
+ u8 XTARGET;
+ u8 RAMPMODE;
 }TmcDataStruct_t;
 /*电机驱动的所有寄存器*/
 typedef struct{
